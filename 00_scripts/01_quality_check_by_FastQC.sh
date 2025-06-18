@@ -23,7 +23,8 @@ OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/02_quality_check
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
 
-eval "$(conda shell.bash hook)"
+conda init bash
+conda activate base
 conda activate fastqc
 
 cd $WORKING_DIRECTORY
