@@ -3,10 +3,10 @@
 #SBATCH --job-name=quality_check_by_FastQC
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p gdec
-#SBATCH --nodelist=gdecnode02
-#SBATCH --mem=450G
-#SBATCH -c 32
+#SBATCH -p smp
+##SBATCH --nodelist=gdecnode02
+#SBATCH --mem=250G
+##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/01_quality_check_by_FastQC.err"
