@@ -23,8 +23,7 @@ OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/02_quality_check
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
 
-conda init bash
-conda activate base
+source ~/.bashrc
 conda activate fastqc
 
 cd $WORKING_DIRECTORY
@@ -35,6 +34,8 @@ do
 done ;
 
 conda deactivate fastqc
+
+source ~/.bashrc
 conda activate multiqc
 
 # Run multiqc for quality summary
