@@ -23,6 +23,7 @@ OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/02_quality_check
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
 
+module load conda/4.12.0
 source ~/.bashrc
 conda activate fastqc
 
@@ -33,11 +34,14 @@ do
       fastqc $FILE -o $OUTPUT
 done ;
 
-conda deactivate fastqc
+conda deactivate
 
+module load conda/4.12.0
 source ~/.bashrc
 conda activate multiqc
 
 # Run multiqc for quality summary
 
 multiqc $OUTPUT
+
+conda deactivate
