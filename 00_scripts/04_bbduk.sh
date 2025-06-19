@@ -32,16 +32,18 @@ cd $WORKING_DIRECTORY
 
 #bbduk.sh -Xmx1g in=reads.fq out=clean.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=1120_sed6_rep3_.pair1.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=1121_sed8_rep1_.pair1.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=1122_sed8_rep2_.pair1.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=1129_sed6_rep1_.pair1.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=1130_sed6_rep2_.pair1.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
+ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer_Phix.txt
 
-bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=1120_sed6_rep3_.pair2.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=1121_sed8_rep1_.pair2.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=1122_sed8_rep2_.pair2.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=1129_sed6_rep1_.pair2.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=1130_sed6_rep2_.pair2.cleaned ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+
+bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
 
