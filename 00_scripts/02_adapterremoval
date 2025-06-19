@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#SBATCH --job-name=02_adapterremoval
+##SBATCH --time=24:00
+#SBATCH --ntasks=1
+#SBATCH -p smp
+##SBATCH --nodelist=gdecnode02
+#SBATCH --mem=250G
+##SBATCH -c 32
+#SBATCH --mail-user=pierrelouis.stenger@gmail.com
+#SBATCH --mail-type=ALL 
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/02_adapterremoval.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/02_adapterremoval.out"
+
+# installing FastQC from https://anaconda.org/bioconda/adapterremoval
+# adapterremoval v2.3.4 
+# And see https://github.com/MikkelSchubert/adapterremoval
+
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/01_raw_data
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
+
+# Make the directory (mkdir) only if not existe already(-p)
+mkdir -p $OUTPUT
+
+module load conda/4.12.0
+source ~/.bashrc
+conda activate adapterremoval
+
+cd $WORKING_DIRECTORY
+
+for R1 in *R1*
+do
+   R2=${R1//R1_001.fastq.gz/R2_001.fastq.gz}
+
+   AdapterRemoval --file1 $R1 --file2 $R2 --basename $OUTPUT/_paired
+
+done ;
+
+conda deactivate
