@@ -41,12 +41,13 @@ cd $WORKING_DIRECTORY
 
 #done ;
 
-AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  –-qualitymax 50 --basename $OUTPUT/_paired
-AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz –-qualitymax 50 --basename $OUTPUT/_paired
+AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+AdapterRemoval 1120_sed6_rep3_R1.fastq.gz 1120_sed6_rep3_R2.fastq.gz --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
+#AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --basename $OUTPUT
 
 conda deactivate
