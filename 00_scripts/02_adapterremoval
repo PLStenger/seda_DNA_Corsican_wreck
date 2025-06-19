@@ -26,13 +26,18 @@ module load conda/4.12.0
 source ~/.bashrc
 conda activate adapterremoval
 
+# Infos de Thibaut AULAGNON:
+# Les séquences sont de « trop bonnes » qualité et certains outils (Adapterremoval2 et bbduk) plantent car ils ne reconnaissent pas le Phred+33.
+# La parade est d’augmenter la –qualitymax : de 41 à 50 pour Adapterremoval. (Il ne faut pas monter à 93 car c’est rejeté ensuite par bbduk).
+# Aussi, avec  Adapterremoval, les adaptateur sont trimmé sur les séquences mergées uniquement, ça ne marche pas pour les « PE ». Mais bbduk peut gérer après en même temps que le phix.
+
 cd $WORKING_DIRECTORY
 
 for R1 in *R1*
 do
    R2=${R1//R1_001.fastq.gz/R2_001.fastq.gz}
 
-   AdapterRemoval --file1 $R1 --file2 $R2 --basename $OUTPUT/_paired
+   AdapterRemoval --file1 $R1 --file2 $R2 –qualitymax 50 --basename $OUTPUT/_paired
 
 done ;
 
