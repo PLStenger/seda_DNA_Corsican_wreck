@@ -18,7 +18,7 @@
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/01_raw_data
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_sequences.fasta
+ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_adpateremoval.txt
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
