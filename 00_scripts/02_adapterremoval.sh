@@ -18,6 +18,7 @@
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/01_raw_data
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
+ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_sequences.fasta
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -41,13 +42,12 @@ cd $WORKING_DIRECTORY
 
 #done ;
 
-AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-AdapterRemoval 1120_sed6_rep3_R1.fastq.gz 1120_sed6_rep3_R2.fastq.gz --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --basename $OUTPUT
-#AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --basename $OUTPUT
+AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1120_sed6_rep3_
+AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1121_sed8_rep1_
+AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1122_sed8_rep2_
+AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1129_sed6_rep1_
+AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1130_sed6_rep2_
+AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1131_sed8_rep3_
+AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/NTC_sed_
 
 conda deactivate
