@@ -33,12 +33,20 @@ conda activate adapterremoval
 
 cd $WORKING_DIRECTORY
 
-for R1 in *R1*
-do
-   R2=${R1//R1.fastq.gz/R2.fastq.gz}
+#for R1 in *R1*
+#do
+#   R2=${R1//R1.fastq.gz/R2.fastq.gz}
 
-   AdapterRemoval --file1 $R1 --file2 $R2 –qualitymax 50 --basename $OUTPUT/_paired
+#   AdapterRemoval --file1 $R1 --file2 $R2 –qualitymax 50 --basename $OUTPUT/_paired
 
-done ;
+#done ;
+
+AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  –-qualitymax 50
+AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz –-qualitymax 50
 
 conda deactivate
