@@ -32,18 +32,44 @@ cd $WORKING_DIRECTORY
 
 #bbduk.sh -Xmx1g in=reads.fq out=clean.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer_Phix.txt
+ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer.fa
+PHIX=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/00_sequence_phix174_ill.ref.fa
 
-bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+for R1 in *pair1.truncated*; do
+  R2="${R1/pair1.truncated/pair2.truncated}"
+  
+  bbduk.sh -Xmx4g \
+    in1="$R1" \
+    in2="$R2" \
+    out1="clean_${R1}" \
+    out2="clean_${R2}" \
+    ref=$ADAPTERS, $PHIX \
+    ktrim=rl \
+    k=23 \
+    mink=11 \
+    hdist=1 \
+    tpe \
+    tbo \
+    minlen=50 \
+    qtrim=r \
+    trimq=20 \
+    stats="${R1%.*}_stats.txt"
+done
 
-bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1131_sed8_rep3_.pair1.truncated out=$OUTPUT/1131_sed8_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
+#bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=1131_sed8_rep3_.pair1.truncated out=$OUTPUT/1131_sed8_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+
+#bbduk.sh -Xmx1g in=NTC_sed_.pair1.truncated out=$OUTPUT/NTC_sed_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
+#bbduk.sh -Xmx1g in=NTC_sed_.pair2.truncated out=$OUTPUT/NTC_sed_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
