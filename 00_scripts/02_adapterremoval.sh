@@ -18,7 +18,9 @@
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/01_raw_data
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_adpateremoval.txt
+#ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_adpateremoval.txt
+ADAPTER_FILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer.fa
+#BARCODE_FILE="barcodes.txt" ?
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -34,20 +36,66 @@ conda activate adapterremoval
 
 cd $WORKING_DIRECTORY
 
-#for R1 in *R1*
-#do
-#   R2=${R1//R1.fastq.gz/R2.fastq.gz}
+# Boucle 1: Démultiplexage pour chaque échantillon
+echo "## Début du démultiplexage"
+for r1_file in *_R1.fastq.gz; do
+    # Vérifier les fichiers R2 correspondants
+    r2_file="${r1_file/_R1/_R2}"
+    if [[ ! -f "$r2_file" ]]; then
+        echo "ERREUR: Fichier R2 manquant pour $r1_file" >&2
+        continue
+    fi
 
-#   AdapterRemoval --file1 $R1 --file2 $R2 –qualitymax 50 --basename $OUTPUT/_paired
+    # Extraire le préfixe du nom de base
+    base_name="${r1_file%%_R1.fastq.gz}"
+    
+    echo "# Traitement de $base_name"
+    AdapterRemoval \
+      #  --barcode-list "$BARCODE_FILE" \
+        --adapter-list "$ADAPTER_FILE" \
+        --file1 "$r1_file" \
+        --file2 "$r2_file" \
+        --basename "${base_name}_demux" \
+       # --barcode-mm 1 \
+        --demultiplex-only \
+        --gzip
+done
+echo "## Démultiplexage terminé"
+echo
 
-#done ;
+# Boucle 2: Nettoyage des reads pour chaque échantillon
+echo "## Début du nettoyage des reads"
+for demux_file in *_demux.pair1.fastq.gz; do
+    # Vérifier les fichiers pair2 correspondants
+    pair2_file="${demux_file/pair1/pair2}"
+    if [[ ! -f "$pair2_file" ]]; then
+        echo "ERREUR: Fichier pair2 manquant pour $demux_file" >&2
+        continue
+    fi
 
-AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1120_sed6_rep3_
-AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1121_sed8_rep1_
-AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1122_sed8_rep2_
-AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1129_sed6_rep1_
-AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1130_sed6_rep2_
-AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1131_sed8_rep3_
-AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/NTC_sed_
+    # Extraire le préfixe du nom de base
+    base_name="${demux_file%_demux.pair1.fastq.gz}"
+    
+    echo "# Traitement de $base_name"
+    AdapterRemoval \
+        --file1 "$demux_file" \
+        --file2 "$pair2_file" \
+        --basename "${base_name}_paired" \
+        --trimns \
+        --trimqualities \
+        --minlength 25 \
+        --qualitymax 50 \
+        --collapse \
+        --gzip
+done
+echo "## Nettoyage des reads terminé"
+
+#AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1120_sed6_rep3_
+#AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1121_sed8_rep1_
+#AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1122_sed8_rep2_
+#AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1129_sed6_rep1_
+#AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1130_sed6_rep2_
+#AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1131_sed8_rep3_
+#AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/NTC_sed_
 
 conda deactivate
