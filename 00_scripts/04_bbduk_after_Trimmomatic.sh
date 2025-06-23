@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=02_trimmomatic
+#SBATCH --job-name=bbduk_after_Trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
