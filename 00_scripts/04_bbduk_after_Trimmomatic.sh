@@ -3,7 +3,7 @@
 #SBATCH --job-name=bbduk_after_Trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p gdec
+#SBATCH -p long
 ##SBATCH --nodelist=gdecnode02
 #SBATCH --mem=250G
 ##SBATCH -c 16
