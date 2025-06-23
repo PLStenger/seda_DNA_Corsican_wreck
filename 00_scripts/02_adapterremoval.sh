@@ -18,9 +18,7 @@
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/01_raw_data
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-#ADAPTERFILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_adpateremoval.txt
-ADAPTER_FILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer.fa
-#BARCODE_FILE="barcodes.txt" ?
+ADAPTER_FILE=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/adapters_adpateremoval.txt
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -50,16 +48,18 @@ for r1_file in *_R1.fastq.gz; do
     base_name="${r1_file%%_R1.fastq.gz}"
     
     echo "# Traitement de $base_name"
+
+   # AdapterRemoval --adapter-list "$ADAPTER_FILE" --file1 "$r1_file" --file2 "$r2_file" --basename "${base_name}_demux" --demultiplex-only --gzip
+    
     AdapterRemoval \
-      #  --barcode-list "$BARCODE_FILE" \
         --adapter-list "$ADAPTER_FILE" \
         --file1 "$r1_file" \
         --file2 "$r2_file" \
         --basename "${base_name}_demux" \
-       # --barcode-mm 1 \
-        --demultiplex-only \
+        --qualitymax 50 \
         --gzip
 done
+
 echo "## Démultiplexage terminé"
 echo
 
