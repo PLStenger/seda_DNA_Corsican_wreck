@@ -3,10 +3,10 @@
 #SBATCH --job-name=bbduk_after_Trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p smp
+#SBATCH -p gdec
 ##SBATCH --nodelist=gdecnode02
 #SBATCH --mem=250G
-##SBATCH -c 32
+##SBATCH -c 16
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_bbduk_Trimmomatic.err"
