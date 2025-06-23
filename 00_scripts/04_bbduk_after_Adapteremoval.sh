@@ -35,6 +35,9 @@ cd $WORKING_DIRECTORY
 ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer_and_Phix.fa
 PHIX=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/00_sequence_phix174_ill.ref.fa
 
+#     ref=$ADAPTERS, $PHIX \
+
+
 for R1 in *pair1.truncated*; do
   R2="${R1/pair1.truncated/pair2.truncated}"
   
@@ -43,7 +46,7 @@ for R1 in *pair1.truncated*; do
     in2="$R2" \
     out1=$OUTPUT/"clean_${R1}" \
     out2=$OUTPUT/"clean_${R2}" \
-    ref=$ADAPTERS, $PHIX \
+    ref=$PHIX \
     ktrim=rl \
     k=23 \
     mink=11 \
