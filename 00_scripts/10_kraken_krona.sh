@@ -20,6 +20,11 @@ mkdir -p $OUTPUT
 
 # From MetaKraken2: https://github.com/MaestSi/MetaKraken2
 
-# Information sur les dababases dispo: https://benlangmead.github.io/aws-indexes/k2
+module load conda/4.12.0
 
+source ~/.bashrc
+conda activate MetaKraken2_env
+
+# Information sur les dababases dispo: https://benlangmead.github.io/aws-indexes/k2
+# Building a Kraken2-indexed database:
 /home/plstenge/MetaKraken2/Build_Kraken2_db.sh -db nt -t 2
