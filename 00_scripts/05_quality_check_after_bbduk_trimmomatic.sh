@@ -9,8 +9,8 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/03_quality_check_by_FastQC_bbduk.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/03_quality_check_by_FastQC_bbduk.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_bbduk_trimmomatic.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_bbduk_trimmomatic.out"
 
 # installing FastQC from https://www.bioinformatics.babraham.ac.uk/projects/download.html
 # FastQC v0.11.9 (Mac DMG image)
