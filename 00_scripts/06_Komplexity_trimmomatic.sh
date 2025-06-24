@@ -26,7 +26,7 @@ cd $WORKING_DIRECTORY
 gunzip *
 
 # run Komplexity (filtering of low-complexity-reads)
-for sample in UnZipFiles/*_paired.fastq ; do kz --filter --threshold 0.55 < $sample > $OUTPUT/$sample.komplex0.55; done 
+for sample in *_paired.fastq ; do kz --filter --threshold 0.55 < $sample > $OUTPUT/$sample.komplex0.55; done 
 
 # compress files
 gzip *komplex0.55* 
