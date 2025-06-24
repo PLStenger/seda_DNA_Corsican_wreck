@@ -26,6 +26,7 @@ mkdir -p $OUTPUT
 module load conda/4.12.0
 source ~/.bashrc
 conda activate fastqc
+conda activate MetaKraken2_env
 
 cd $WORKING_DIRECTORY
 
