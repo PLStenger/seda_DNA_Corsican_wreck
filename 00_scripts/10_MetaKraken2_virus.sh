@@ -27,4 +27,4 @@ conda activate MetaKraken2_env
 
 #gunzip /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe.gz
 
-/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe  -db /home/plstenge/MetaKraken2/viral_db -c 0.1 -t 2
+/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe  -db /home/plstenge/MetaKraken2/viral_db -c 0.1 -t 2 -o /home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
