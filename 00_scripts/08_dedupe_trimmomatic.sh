@@ -13,7 +13,7 @@
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/08_dedupe_trimmomatic.out"
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_komplexity_trimmomatic
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/08_dedupe_trimmomatic
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic
 DEDUPE=/home/plstenge/bbmap/dedupe.sh
 
 # Make the directory (mkdir) only if not existe already(-p)
