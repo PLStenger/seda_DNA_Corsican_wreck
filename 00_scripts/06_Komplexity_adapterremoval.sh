@@ -28,5 +28,7 @@ cd $WORKING_DIRECTORY
 # run Komplexity (filtering of low-complexity-reads)
 for sample in *truncated ; do kz --filter --threshold 0.55 < $sample > $OUTPUT/$sample.komplex0.55; done 
 
+cd $OUTPUT
 # compress files
 gzip *komplex0.55* 
+
