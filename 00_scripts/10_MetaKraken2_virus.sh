@@ -25,4 +25,4 @@ module load conda/4.12.0
 source ~/.bashrc
 conda activate MetaKraken2_env
 
-/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe.gz  -db /home/plstenge/MetaKraken2/k2_viral_20250402.tar.gz -c 0.9 -t 2
+/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe.gz  -db /home/plstenge/MetaKraken2/viral_db -c 0.9 -t 2
