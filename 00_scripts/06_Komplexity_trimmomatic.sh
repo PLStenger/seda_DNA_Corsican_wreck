@@ -24,4 +24,4 @@ cd $WORKING_DIRECTORY
 
 #Komplexity (filtering of low-complexity-reads)
 for sample in *_paired.fastq.gz; do kz --filter --threshold 0.55 < $sample > $sample.komplex0.55; done #compress files
-gzip *komplex0.55 
+gzip *komplex0.55* 
