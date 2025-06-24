@@ -19,7 +19,7 @@
 # bbduk.sh -Xmx1g in1=read1.fq in2=read2.fq out1=clean1.fq out2=clean2.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_outpur
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_Adapteremoval
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -32,8 +32,10 @@ cd $WORKING_DIRECTORY
 
 #bbduk.sh -Xmx1g in=reads.fq out=clean.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer_and_Phix.fa
-PHIX=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/00_sequence_phix174_ill.ref.fa
+#ADAPTERS=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/illumina_Meyer_and_Phix.fa
+#PHIX=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/00_sequence_phix174_ill.ref.fa
+PHIX=/home/plstenge/bbmap/resources/phix174_ill.ref.fa.gz
+BBDUK=/home/plstenge/bbmap/bbduk.sh
 
 #     ref=$ADAPTERS, $PHIX \
 
@@ -41,7 +43,7 @@ PHIX=/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/00_sequence_phix174_ill
 for R1 in *pair1.truncated*; do
   R2="${R1/pair1.truncated/pair2.truncated}"
   
-  bbduk.sh -Xmx4g \
+  $BBDUK -Xmx4g \
     in1="$R1" \
     in2="$R2" \
     out1=$OUTPUT/"clean_${R1}" \
