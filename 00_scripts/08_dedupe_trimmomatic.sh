@@ -26,4 +26,4 @@ conda activate bbduk
 cd $WORKING_DIRECTORY
 
 #Dedupe in BBmap (can run in .gz, but the duplicate file will still be a fasta not fastq)
-for sample in *gz; do $DEDUPE in=$sample out=$sample-dedupe.gz outd=$sample-duplicates.fa ac=f; done
+for sample in *gz; do $DEDUPE in=$sample out=$OUTPUT/$sample-dedupe.gz outd=$OUTPUT/$sample-duplicates.fa ac=f; done
