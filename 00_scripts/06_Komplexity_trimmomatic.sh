@@ -22,8 +22,11 @@ mkdir -p $OUTPUT
 
 cd $WORKING_DIRECTORY
 
-gunzip -c *.fastq.gz | iconv -t UTF-8//IGNORE > *.fastq
+# uncompress files
+gunzip *
 
-#Komplexity (filtering of low-complexity-reads)
-for sample in *_paired.fastq ; do kz --filter --threshold 0.55 < $sample > $sample.komplex0.55; done #compress files
+# run Komplexity (filtering of low-complexity-reads)
+for sample in UnZipFiles/*_paired.fastq ; do kz --filter --threshold 0.55 < $sample > $OUTPUT/$sample.komplex0.55; done 
+
+# compress files
 gzip *komplex0.55* 
