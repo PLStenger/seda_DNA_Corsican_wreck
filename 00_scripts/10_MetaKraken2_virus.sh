@@ -12,7 +12,7 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_kraken_krona.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_kraken_krona.out"
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic
+INPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
 
 # Make the directory (mkdir) only if not existe already(-p)
@@ -25,6 +25,13 @@ module load conda/4.12.0
 source ~/.bashrc
 conda activate MetaKraken2_env
 
+cd $OUTPUT
+
 #gunzip /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe.gz
 
-/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe  -db /home/plstenge/MetaKraken2/viral_db -c 0.1 -t 2 -o /home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
+for FILE in $(ls $INPUT/*)
+do
+      /home/plstenge/MetaKraken2/MetaKraken2.sh -f $FILE -db /home/plstenge/MetaKraken2/viral_db -c 0.5 -t 2
+done ;
+
+#/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe  -db /home/plstenge/MetaKraken2/viral_db -c 0.1 -t 2 -o /home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
