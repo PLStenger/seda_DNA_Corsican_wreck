@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=quality_check_by_FastQC_bbduk
+#SBATCH --job-name=quality_check_by_FastQC_bbduk_trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -17,8 +17,8 @@
 
 # Correct tool citation : Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence data.
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_outpur
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/04_quality_check_adapterremoval_bbduk
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_trimmomatic
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/06_quality_check_after_bbduk_trimmomatic
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
