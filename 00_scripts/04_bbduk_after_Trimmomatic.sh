@@ -39,8 +39,8 @@ BBDUK=/home/plstenge/bbmap/bbduk.sh
 #     ref=$ADAPTERS, $PHIX \
 
 
-for R1 in *pair1.truncated*; do
-  R2="${R1/pair1.truncated/pair2.truncated}"
+for R1 in *R1_paired*; do
+  R2="${R1/R1_paired/R2_paired}"
   
   $BBDUK -Xmx4g \
     in1="$R1" \
