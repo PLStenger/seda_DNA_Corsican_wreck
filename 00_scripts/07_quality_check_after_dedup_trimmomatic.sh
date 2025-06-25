@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=09_quality_check_after_dedup_trimmomatic
+#SBATCH --job-name=07_quality_check_after_dedup_trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,8 +9,8 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/09_quality_check_after_dedup_trimmomatic.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/09_quality_check_after_dedup_trimmomatic.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/07_quality_check_after_dedup_trimmomatic.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/07_quality_check_after_dedup_trimmomatic.out"
 
 # installing FastQC from https://www.bioinformatics.babraham.ac.uk/projects/download.html
 # FastQC v0.11.9 (Mac DMG image)
