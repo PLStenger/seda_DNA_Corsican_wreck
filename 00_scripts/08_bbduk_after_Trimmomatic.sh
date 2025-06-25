@@ -54,7 +54,7 @@ for R1 in *R1_paired*; do
     hdist=1 \
     tpe \
     tbo \
-    minlen=50 \
+    minlen=25 \
     qtrim=r \
     trimq=20 \
     stats="${R1%.*}_stats.txt"
