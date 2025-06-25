@@ -18,8 +18,8 @@
 # or
 # bbduk.sh -Xmx1g in1=read1.fq in2=read2.fq out1=clean1.fq out2=clean2.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_trimmomatic
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_trimmomatic
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_dedupe_trimmomatic
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_bbduk_after_trimmomatic
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
