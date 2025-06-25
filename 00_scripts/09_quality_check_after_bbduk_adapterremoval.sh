@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=quality_check_by_FastQC_bbduk_Adapteremoval
+#SBATCH --job-name=09_quality_check_by_FastQC_bbduk_Adapteremoval
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,8 +9,8 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_bbduk_Adapteremoval.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_bbduk_Adapteremoval.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/09_quality_check_after_bbduk_Adapteremoval.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/09_quality_check_after_bbduk_Adapteremoval.out"
 
 # installing FastQC from https://www.bioinformatics.babraham.ac.uk/projects/download.html
 # FastQC v0.11.9 (Mac DMG image)
