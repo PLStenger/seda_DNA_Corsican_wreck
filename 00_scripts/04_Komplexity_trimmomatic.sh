@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=06_Komplexity_trimmomatic
+#SBATCH --job-name=04_Komplexity_trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,8 +9,8 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_Komplexity_trimmomatic.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_Komplexity_trimmomatic.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_Komplexity_trimmomatic.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_Komplexity_trimmomatic.out"
 
 # https://github.com/eclarke/komplexity
 
