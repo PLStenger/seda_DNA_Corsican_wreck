@@ -16,6 +16,15 @@ WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/00_scripts
 
 cd $WORKING_DIRECTORY
 
+# 02_adapterremoval.sh
+#   └─> 03_quality_check_by_FastQC_adapteremoval.sh
+#   └─> 04_Komplexity_adapterremoval.sh
+#         ├─> 05_quality_check_after_komplexity_adpaterremoval.sh
+#         └─> 06_dedupe_adapterremoval.sh
+#               ├─> 07_quality_check_after_dedup_adapterremoval.sh
+#               └─> 08_bbduk_after_Adapteremoval.sh
+#                     └─> 09_quality_check_after_bbduk_adapterremoval.sh
+
 # 1. AdapterRemoval
 jid1=$(sbatch 02_adapterremoval.sh | awk '{print $4}')
 
