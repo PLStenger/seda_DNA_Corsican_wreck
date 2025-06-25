@@ -17,8 +17,8 @@
 
 # Correct tool citation : Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence data.
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_komplexity_trimmomatic
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/08_quality_check_after_komplexity_trimmomatic
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_komplexity_trimmomatic
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/06_quality_check_after_komplexity_trimmomatic
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
