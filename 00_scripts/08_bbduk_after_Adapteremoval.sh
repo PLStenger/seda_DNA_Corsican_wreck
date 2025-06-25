@@ -55,7 +55,7 @@ for R1 in *pair1.truncated*; do
     hdist=1 \
     tpe \
     tbo \
-    minlen=50 \
+    minlen=25 \
     qtrim=r \
     trimq=20 \
     stats="${R1%.*}_stats.txt"
