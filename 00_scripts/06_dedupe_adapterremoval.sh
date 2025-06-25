@@ -12,8 +12,8 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_dedupe_adapterremoval.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_dedupe_adapterremoval.out"
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_komplexity_Adapteremoval
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_komplexity_adapterremoval
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/07_dedupe_Adapteremoval
 DEDUPE=/home/plstenge/bbmap/dedupe.sh
 
 # Make the directory (mkdir) only if not existe already(-p)
