@@ -18,8 +18,8 @@
 # or
 # bbduk.sh -Xmx1g in1=read1.fq in2=read2.fq out1=clean1.fq out2=clean2.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_Adapteremoval
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_dedupe_Adapteremoval
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_bbduk_after_Adapteremoval
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -60,20 +60,6 @@ for R1 in *pair1.truncated*; do
     trimq=20 \
     stats="${R1%.*}_stats.txt"
 done
-
-#bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1131_sed8_rep3_.pair1.truncated out=$OUTPUT/1131_sed8_rep3_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-
-#bbduk.sh -Xmx1g in=1120_sed6_rep3_.pair1.truncated out=$OUTPUT/1120_sed6_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1121_sed8_rep1_.pair1.truncated out=$OUTPUT/1121_sed8_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1122_sed8_rep2_.pair1.truncated out=$OUTPUT/1122_sed8_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1129_sed6_rep1_.pair1.truncated out=$OUTPUT/1129_sed6_rep1_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1130_sed6_rep2_.pair1.truncated out=$OUTPUT/1130_sed6_rep2_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
-#bbduk.sh -Xmx1g in=1131_sed8_rep3_.pair1.truncated out=$OUTPUT/1131_sed8_rep3_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
 #bbduk.sh -Xmx1g in=NTC_sed_.pair1.truncated out=$OUTPUT/NTC_sed_.pair1.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
 #bbduk.sh -Xmx1g in=NTC_sed_.pair2.truncated out=$OUTPUT/NTC_sed_.pair2.cleaned ref=$ADAPTERS ktrim=r k=23 mink=11 hdist=1 tpe tbo
