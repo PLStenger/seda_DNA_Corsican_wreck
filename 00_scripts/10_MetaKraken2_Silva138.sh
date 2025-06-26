@@ -12,8 +12,8 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_MetaKraken2_Silva138.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_MetaKraken2_Silva138.out"
 
-INPUT=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
+INPUT=/home/plstenge/seda_DNA_Corsican_wreck/07_komplexity_Adapteremoval 
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic_test
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
@@ -31,10 +31,10 @@ cd $OUTPUT
 
 for FILE in $(ls $INPUT/*)
 do
-      /home/plstenge/MetaKraken2/MetaKraken2.sh -f $FILE -db /storage/biodatabanks/db/kraken2_databases/kraken_index_2021-5-27/flat/16S_Silva138_20200326 -c 0.7 -t 2
+      /home/plstenge/MetaKraken2/MetaKraken2.sh -f $FILE -db /storage/biodatabanks/db/kraken2_databases/kraken_index_2021-5-27/flat/16S_Silva138_20200326/16S_SILVA138_k2db -c 0.7 -t 2
 done ;
 
 #/home/plstenge/MetaKraken2/MetaKraken2.sh -f /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55.gz-dedupe  -db /home/plstenge/MetaKraken2/viral_db -c 0.1 -t 2 -o /home/plstenge/seda_DNA_Corsican_wreck/10_Krona_dedupe_trimmomatic
 
 
-mv /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_trimmomatic/*kraken2* $OUTPUT
+mv /home/plstenge/seda_DNA_Corsican_wreck/07_komplexity_Adapteremoval/*kraken2* $OUTPUT
