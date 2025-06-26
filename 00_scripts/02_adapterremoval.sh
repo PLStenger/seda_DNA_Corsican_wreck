@@ -55,7 +55,7 @@ for r1_file in *_R1.fastq.gz; do
         --adapter-list "$ADAPTER_FILE" \
         --file1 "$r1_file" \
         --file2 "$r2_file" \
-        --basename "${base_name}_demux" \
+        --basename $OUTPUT/"${base_name}_demux" \
         --qualitymax 50 \
         --gzip
 done
@@ -80,7 +80,7 @@ for demux_file in *_demux.pair1.fastq.gz; do
     AdapterRemoval \
         --file1 "$demux_file" \
         --file2 "$pair2_file" \
-        --basename "${base_name}_paired" \
+        --basename $OUTPUT/"${base_name}_paired" \
         --trimns \
         --trimqualities \
         --minlength 25 \
@@ -89,13 +89,5 @@ for demux_file in *_demux.pair1.fastq.gz; do
         --gzip
 done
 echo "## Nettoyage des reads terminé"
-
-#AdapterRemoval --file1 1120_sed6_rep3_R1.fastq.gz --file2 1120_sed6_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1120_sed6_rep3_
-#AdapterRemoval --file1 1121_sed8_rep1_R1.fastq.gz --file2 1121_sed8_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1121_sed8_rep1_
-#AdapterRemoval --file1 1122_sed8_rep2_R1.fastq.gz --file2 1122_sed8_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1122_sed8_rep2_
-#AdapterRemoval --file1 1129_sed6_rep1_R1.fastq.gz --file2 1129_sed6_rep1_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1129_sed6_rep1_
-#AdapterRemoval --file1 1130_sed6_rep2_R1.fastq.gz --file2 1130_sed6_rep2_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1130_sed6_rep2_
-#AdapterRemoval --file1 1131_sed8_rep3_R1.fastq.gz --file2 1131_sed8_rep3_R2.fastq.gz  --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/1131_sed8_rep3_
-#AdapterRemoval --file1 NTC_sed_R1.fastq.gz --file2 NTC_sed_R2.fastq.gz --qualitymax 50 --adapter-list $ADAPTERFILE --basename $OUTPUT/NTC_sed_
 
 conda deactivate
