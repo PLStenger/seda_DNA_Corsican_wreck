@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=08_bbduk_after_Adapteremoval
+#SBATCH --job-name=04_bbduk_after_Adapteremoval
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,8 +9,8 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/08_bbduk_after_Adapteremoval.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/08_bbduk_after_Adapteremoval.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_bbduk_after_Adapteremoval.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_bbduk_after_Adapteremoval.out"
 
 # "Duk" stands for Decontamination Using Kmers. BBDuk is extremely fast, scalable, and memory-efficient, while maintaining greater sensitivity and specificity than other tools. It can do lots of different things, for example -
 # Adapter trimming:
@@ -18,8 +18,8 @@
 # or
 # bbduk.sh -Xmx1g in1=read1.fq in2=read2.fq out1=clean1.fq out2=clean2.fq ref=adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/07_dedupe_Adapteremoval
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_bbduk_after_Adapteremoval
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval 
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_Adapteremoval
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
