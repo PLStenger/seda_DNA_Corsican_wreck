@@ -23,7 +23,7 @@ mkdir -p $OUTPUT
 cd $WORKING_DIRECTORY
 
 # uncompress files
-gunzip *
+# gunzip *
 
 # run Komplexity (filtering of low-complexity-reads)
 for sample in *truncated ; do kz --filter --threshold 0.55 < $sample > $sample.komplex0.55; done 
