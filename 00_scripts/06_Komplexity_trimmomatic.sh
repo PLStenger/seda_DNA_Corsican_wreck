@@ -22,6 +22,11 @@ mkdir -p $OUTPUT
 
 cd $WORKING_DIRECTORY
 
+module load conda/4.12.0
+source ~/.bashrc
+conda activate base
+conda activate komplexity
+
 # uncompress files
 # gunzip *
 
