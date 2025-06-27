@@ -25,5 +25,8 @@ conda activate bbduk
 
 cd $WORKING_DIRECTORY
 
+# uncompress files
+gunzip *
+
 #Dedupe in BBmap (can run in .gz, but the duplicate file will still be a fasta not fastq)
-for sample in *.truncated*; do $DEDUPE in=$sample out=$OUTPUT/$sample-dedupe.gz outd=$OUTPUT/$sample-duplicates.fa ac=f; done
+for sample in *komplex0.55; do $DEDUPE in=$sample out=$OUTPUT/$sample-dedupe.gz outd=$OUTPUT/$sample-duplicates.fa ac=f; done
