@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=04_Komplexity_trimmomatic
+#SBATCH --job-name=06_Komplexity_trimmomatic
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,13 +9,13 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_Komplexity_trimmomatic.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/04_Komplexity_trimmomatic.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_Komplexity_trimmomatic.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_Komplexity_trimmomatic.out"
 
 # https://github.com/eclarke/komplexity
 
 WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_trimmomatic
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_komplexity_trimmomatic
+OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_trimmomatic
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
