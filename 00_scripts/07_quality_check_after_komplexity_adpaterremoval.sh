@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=05_quality_check_after_komplexity_adpaterremoval
+#SBATCH --job-name=07_quality_check_after_komplexity_adpaterremoval
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,15 +9,15 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_komplexity_adpaterremoval.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/05_quality_check_after_komplexity_adpaterremoval.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/07_quality_check_after_komplexity_adpaterremoval.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/07_quality_check_after_komplexity_adpaterremoval.out"
 
 # installing FastQC from https://www.bioinformatics.babraham.ac.uk/projects/download.html
 # FastQC v0.11.9 (Mac DMG image)
 
 # Correct tool citation : Andrews, S. (2010). FastQC: a quality control tool for high throughput sequence data.
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_komplexity_adapterremoval
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_bbduk_after_trimmomatic
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/06_quality_check_after_komplexity_Adapteremoval
 
 # Make the directory (mkdir) only if not existe already(-p)
