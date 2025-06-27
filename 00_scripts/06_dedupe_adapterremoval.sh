@@ -12,7 +12,7 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_dedupe_adapterremoval.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/06_dedupe_adapterremoval.out"
 
-WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/05_komplexity_adapterremoval
+WORKING_DIRECTORY=/home/plstenge/seda_DNA_Corsican_wreck/03_cleaned_data_adapterremoval
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/07_dedupe_Adapteremoval
 DEDUPE=/home/plstenge/bbmap/dedupe.sh
 
@@ -26,4 +26,4 @@ conda activate bbduk
 cd $WORKING_DIRECTORY
 
 #Dedupe in BBmap (can run in .gz, but the duplicate file will still be a fasta not fastq)
-for sample in *gz; do $DEDUPE in=$sample out=$OUTPUT/$sample-dedupe.gz outd=$OUTPUT/$sample-duplicates.fa ac=f; done
+for sample in *.truncated; do $DEDUPE in=$sample out=$OUTPUT/$sample-dedupe.gz outd=$OUTPUT/$sample-duplicates.fa ac=f; done
