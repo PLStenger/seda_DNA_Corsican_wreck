@@ -25,4 +25,4 @@ source ~/.bashrc
 conda activate malt
 
 #Build MALT-index
-./malt/malt-build -i /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --threads 16 --verbose
+malt-build -i /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --threads 16 --verbose
