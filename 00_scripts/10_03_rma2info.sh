@@ -25,12 +25,10 @@ conda activate megan
 cd $INPUT || exit
 
 # Boucle sur tous les fichiers .rma6
+
 for file in *.rma6; do
-    # Extraire le nom sans extension
     base_name="${file%.rma6}"
-    # Créer le nom de sortie
-    output="$OUTPUT/${base_name}_taxonomy_counts.txt"
-    # Lancer la commande rma2info
+    output="$OUTPUT_DIR/${base_name}_taxonomy_counts.txt"
     echo "Processing $file → $output"
-    rma2info -i "$file" -t -o "$output"
+    rma2info -i "$file" -c2c -o "$output"
 done
