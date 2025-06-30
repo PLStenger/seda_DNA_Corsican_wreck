@@ -18,11 +18,11 @@ OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/11_malt
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
 
+cd $OUTPUT
 
 module load conda/4.12.0
-
 source ~/.bashrc
 conda activate malt
 
 #Build MALT-index
-./malt/malt-build -i ./Databases/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz --sequenceType DNA --index ./malt-index/SILVA_138_2_SSURef_NR99 --threads 16 --verbose
+./malt/malt-build -i /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --threads 16 --verbose
