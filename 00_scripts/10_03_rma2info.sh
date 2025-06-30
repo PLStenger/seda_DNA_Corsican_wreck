@@ -12,9 +12,6 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_03_rma2info.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_03_rma2info.out"
 
-INPUT=/home/plstenge/seda_DNA_Corsican_wreck/11_malt
-OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/12_rma2info
-
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
 
@@ -22,13 +19,16 @@ module load conda/4.12.0
 source ~/.bashrc
 conda activate megan
 
-cd $INPUT || exit
+INPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/11_malt"
+OUTPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/12_rma2info"
 
-# Boucle sur tous les fichiers .rma6
+mkdir -p "$OUTPUT_DIR"
+
+cd "$INPUT_DIR" || { echo "Erreur : dossier introuvable"; exit 1; }
 
 for file in *.rma6; do
     base_name="${file%.rma6}"
-    output="$OUTPUT_DIR/${base_name}_taxonomy_counts.txt"
+    output="${OUTPUT_DIR}/${base_name}_taxonomy_counts.txt"
     echo "Processing $file → $output"
     rma2info -i "$file" -c2c -o "$output"
 done
