@@ -12,8 +12,6 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_03_rma2info.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_03_rma2info.out"
 
-# Make the directory (mkdir) only if not existe already(-p)
-mkdir -p $OUTPUT
 
 module load conda/4.12.0
 source ~/.bashrc
