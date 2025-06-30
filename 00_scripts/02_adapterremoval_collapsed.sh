@@ -51,17 +51,17 @@ for r1_file in *_R1.fastq.gz; do
 
    # AdapterRemoval --adapter-list "$ADAPTER_FILE" --file1 "$r1_file" --file2 "$r2_file" --basename "${base_name}_demux" --demultiplex-only --gzip
     
-    AdapterRemoval \
-    --adapter-list "$ADAPTER_FILE" \
-    --file1 "$r1_file" \
-    --file2 "$r2_file" \
-    --basename $OUTPUT/"${base_name}_demux" \
+AdapterRemoval \
+    --file1 "$demux_file" \
+    --file2 "$pair2_file" \
+    --basename "${base_name}_paired" \
+    --trimns \
+    --trimqualities \
+    --minlength 25 \
     --qualitymax 50 \
-    --trimns \       
-    --trimqualities \ 
-    --minlength 25 \     
-    --collapse \         
+    --collapse \
     --gzip
+    
 done
 
 echo "## Démultiplexage terminé"
