@@ -25,5 +25,5 @@ conda activate malt
 cd $INPUT
 
 #Run MALT
-malt-run -i ./*-dedupe.gz  -a ./ --index ./malt-index/SILVA_138_2_SSURef_NR99 --mode BlastN --format Text --alignmentType SemiGlobal -t 8 --verbose
+malt-run -i *-dedupe.gz  -a --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --mode BlastN --format Text --alignmentType SemiGlobal -t 8 --verbose
 
