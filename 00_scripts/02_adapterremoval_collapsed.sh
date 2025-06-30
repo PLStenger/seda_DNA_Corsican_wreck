@@ -57,10 +57,10 @@ for r1_file in *_R1.fastq.gz; do
     --file2 "$r2_file" \
     --basename $OUTPUT/"${base_name}_demux" \
     --qualitymax 50 \
-    --trimns \           # Ajoutez le trimming
-    --trimqualities \    # Ajoutez le trimming
-    --minlength 25 \     # Ajoutez le minlength
-    --collapse \         # Fusion R1/R2
+    --trimns \       
+    --trimqualities \ 
+    --minlength 25 \     
+    --collapse \         
     --gzip
 done
 
@@ -75,16 +75,17 @@ for demux_file in *_demux.pair1.fastq.gz; do
     pair2_file="${demux_file/pair1/pair2}"
     base_name="${demux_file%_demux.pair1.fastq.gz}"
     
-    AdapterRemoval \
-        --file1 "$demux_file" \
-        --file2 "$pair2_file" \
-        --basename "${base_name}_paired" \
-        --trimns \
-        --trimqualities \
-        --minlength 25 \
-        --qualitymax 50 \
-        --collapse \     # Maintenant activé
-        --gzip
+AdapterRemoval \
+    --file1 "$demux_file" \
+    --file2 "$pair2_file" \
+    --basename "${base_name}_paired" \
+    --trimns \
+    --trimqualities \
+    --minlength 25 \
+    --qualitymax 50 \
+    --collapse \
+    --gzip
+    
 done
 
 echo "## Nettoyage des reads terminé"
