@@ -16,6 +16,8 @@
 FASTA_GZ="/home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138.2_SSURef_NR99_tax_silva.fasta.gz"
 OUTMAP="acc2taxa.map"
 
+cd /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99
+
 # Vérification du fichier
 if [[ ! -f "$FASTA_GZ" ]]; then
     echo "Erreur : fichier $FASTA_GZ introuvable"
