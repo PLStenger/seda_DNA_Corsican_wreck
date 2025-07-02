@@ -17,8 +17,8 @@ module load conda/4.12.0
 source ~/.bashrc
 conda activate megan
 
-INPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/11_malt"
-OUTPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/12_rma2info"
+INPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/11_malt_Adapteremoval_collapsed"
+OUTPUT_DIR="/home/plstenge/seda_DNA_Corsican_wreck/12_rma2info_Adapteremoval_collapsed"
 
 mkdir -p "$OUTPUT_DIR"
 
