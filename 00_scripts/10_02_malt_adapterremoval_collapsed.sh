@@ -14,9 +14,11 @@
 
 INPUT=/home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval_collapsed
 OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/11_malt_Adapteremoval_collapsed
+ALIGNMENT_OUTPUT=/home/plstenge/seda_DNA_Corsican_wreck/11_malt_Adapteremoval_collapsed_alignment
 
 # Make the directory (mkdir) only if not existe already(-p)
 mkdir -p $OUTPUT
+mkdir -p $ALIGNMENT_OUTPUT
 
 module load conda/4.12.0
 source ~/.bashrc
@@ -25,4 +27,5 @@ conda activate malt
 cd $INPUT
 
 #Run MALT
-malt-run -i *-dedupe.gz -a --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --mode BlastN --alignmentType SemiGlobal -t 8 --verbose --output $OUTPUT
+#malt-run -i *-dedupe.gz -a --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --mode BlastN --alignmentType SemiGlobal -t 8 --verbose --output $OUTPUT
+malt-run -i *-dedupe.gz --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/SILVA_138_2_SSURef_NR99 --mode BlastN --alignmentType SemiGlobal -t 8 --verbose --output $OUTPUT --alignments $ALIGNMENT_OUTPUT --format Text
