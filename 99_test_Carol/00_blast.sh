@@ -12,7 +12,7 @@
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/00_blast.err"
 #SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/00_blast.out"
 
-INPUT=/home/plstenge/99_test_Carol/test.fasta 
+INPUT=/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/test.fasta 
 
 cd $INPUT
 
