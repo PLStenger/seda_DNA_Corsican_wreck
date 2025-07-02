@@ -17,9 +17,9 @@ INPUT=/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol
 cd $INPUT
 
 blastn \
-  -query test.fasta \
+  -query all_seq.fasta \
   -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
-  -out results_blastn.tsv \
+  -out results_blastn_all_seq.tsv \
   -outfmt 6 \
   -max_target_seqs 10 \
   -num_threads 4
