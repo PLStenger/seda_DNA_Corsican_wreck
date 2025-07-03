@@ -25,4 +25,5 @@ source ~/.bashrc
 conda activate malt
 
 #Build MALT-index
-malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
+#malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
+java -Xmx200G -jar malt-build.jar -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
