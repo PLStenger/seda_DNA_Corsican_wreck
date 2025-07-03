@@ -28,7 +28,7 @@ for file in *.rma6; do
     base_name="${file%.rma6}"
     output="${OUTPUT_DIR}/${base_name}_taxonomy_counts.txt"
     echo "Processing $file → $output"
-    rma2info -i "$file" -c2c -o "$output"
+   # rma2info -i "$file" -c2c -o "$output"
     rma2info -i "$file" -u false -r2c Taxonomy -v > $output
 done
 
