@@ -25,14 +25,32 @@ supp=0
 mpi=95
 
 for rfile in "$INPUT_DEDUPE"/*-dedupe.gz; do
+    # Extraire le nom de base sans le suffixe -dedupe.gz
     base=$(basename "$rfile" "-dedupe.gz")
-    ifile="$INPUT_BLASTN/${base}.blastn.gz"
+    # Supprimer le suffixe .[nombre] (ex: .55) à la fin du nom de base
+    normbase=$(echo "$base" | sed -E 's/\.[0-9]+$//')
+
+    # Chercher le fichier blastn correspondant (sans .55)
+    ifile="$INPUT_BLASTN/${normbase}.blastn.gz"
     ofile="$OUTPUT/${base}.rma6"
 
     if [[ -f "$ifile" ]]; then
         echo "Running blast2rma for $base"
         blast2rma -r "$rfile" -i "$ifile" -o "$ofile" -v -ms $ms -me $me -f BlastText -supp $supp -mpi $mpi -alg weighted -lcp 80
     else
-        echo "Missing BLAST file for $base — skipping."
+        echo "Missing BLAST file for $base (expected: $ifile) — skipping."
     fi
 done
+
+# for rfile in "$INPUT_DEDUPE"/*-dedupe.gz; do
+#     base=$(basename "$rfile" "-dedupe.gz")
+#     ifile="$INPUT_BLASTN/${base}.blastn.gz"
+#     ofile="$OUTPUT/${base}.rma6"
+# 
+#     if [[ -f "$ifile" ]]; then
+#         echo "Running blast2rma for $base"
+#         blast2rma -r "$rfile" -i "$ifile" -o "$ofile" -v -ms $ms -me $me -f BlastText -supp $supp -mpi $mpi -alg weighted -lcp 80
+#     else
+#         echo "Missing BLAST file for $base — skipping."
+#     fi
+# done
