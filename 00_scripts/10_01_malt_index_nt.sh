@@ -25,10 +25,12 @@ source ~/.bashrc
 conda activate malt
 
 #export JAVA_TOOL_OPTIONS="-Xmx220G"
-export INSTALL4J_ADD_VM_PARAMS="-Xmx220G"
+#export INSTALL4J_ADD_VM_PARAMS="-Xmx220G"
+
+INSTALL4J_ADD_VM_PARAMS="-Xmx220G" /home/plstenge/miniconda3/envs/malt "$@"
 
 malt-build --help | grep -i mem
 
 #Build MALT-index
 #malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose --Xmx220G
-malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
+bash runMalt.sh -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
