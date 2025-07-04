@@ -1,5 +1,3 @@
-Mon script:
-
 #!/bin/bash
 
 #SBATCH --job-name=10_01_malt_index_nt
