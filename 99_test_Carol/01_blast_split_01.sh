@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=00_blast
+#SBATCH --job-name=split_01
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
 #SBATCH -p smp
@@ -9,17 +9,17 @@
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
-#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/00_blast.err"
-#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/00_blast.out"
+#SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/split_01.err"
+#SBATCH --output="/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol/split_01.out"
 
 INPUT=/home/plstenge/seda_DNA_Corsican_wreck/99_test_Carol 
 
 cd $INPUT
 
 blastn \
-  -query all_seq.fasta \
+  -query split_01.fasta \
   -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
-  -out results_blastn_all_seq.tsv \
+  -out results_blastn_split_01.tsv \
   -outfmt 6 \
   -max_target_seqs 10 \
   -num_threads 4
