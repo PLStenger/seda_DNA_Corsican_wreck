@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8     
 #SBATCH -p gdec
-#SBATCH --mem=750G            
+#SBATCH --mem=1000G            
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_01_malt_index_nt.err"
@@ -28,5 +28,7 @@ conda activate malt
 # find . -name "*.vmoptions"
 # Modifier le XmX
 
+export JAVA_TOOL_OPTIONS="-Xmx750G"
+
 #Build MALT-index
-malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 16 --verbose
+malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 8 --verbose
