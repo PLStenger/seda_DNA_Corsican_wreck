@@ -29,7 +29,7 @@ conda activate fastqc
 
 cd $WORKING_DIRECTORY
 
-for FILE in $(ls $WORKING_DIRECTORY/*)
+for FILE in $(ls $WORKING_DIRECTORY/*.gz)
 do
       fastqc $FILE -o $OUTPUT
 done ;
