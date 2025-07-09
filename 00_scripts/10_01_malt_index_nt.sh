@@ -4,8 +4,8 @@
 ##SBATCH --time=96:00:00       
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=8     
-#SBATCH -p gdec
-#SBATCH --mem=1000G            
+#SBATCH -p smp
+#SBATCH --mem=1000G          
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
 #SBATCH --error="/home/plstenge/seda_DNA_Corsican_wreck/00_scripts/10_01_malt_index_nt.err"
