@@ -50,9 +50,12 @@ for r1_file in *_R1.fastq.gz; do
     echo "# Traitement de $base_name"
 
    # AdapterRemoval --adapter-list "$ADAPTER_FILE" --file1 "$r1_file" --file2 "$r2_file" --basename "${base_name}_demux" --demultiplex-only --gzip
+
+    #         --adapter-list "$ADAPTER_FILE" \
     
     AdapterRemoval \
-        --adapter-list "$ADAPTER_FILE" \
+        --adapter1 AGATCGGAAGAGCACACGTCTGAACTCCAGTCA \
+        --adapter2 AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT \
         --file1 "$r1_file" \
         --file2 "$r2_file" \
         --basename $OUTPUT/"${base_name}_demux" \
