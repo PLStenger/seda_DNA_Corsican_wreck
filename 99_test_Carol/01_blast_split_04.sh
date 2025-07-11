@@ -3,7 +3,7 @@
 #SBATCH --job-name=split_04
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p smp
+#SBATCH -p long
 ##SBATCH --nodelist=gdecnode02
 #SBATCH --mem=250G
 ##SBATCH -c 32
