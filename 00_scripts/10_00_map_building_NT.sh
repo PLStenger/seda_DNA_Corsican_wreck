@@ -3,9 +3,9 @@
 #SBATCH --job-name=10_00_map_building
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p smp
+#SBATCH -p gdec
 ##SBATCH --nodelist=gdecnode02
-#SBATCH --mem=250G
+#SBATCH --mem=500G
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
