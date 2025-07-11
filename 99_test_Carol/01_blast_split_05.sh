@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH -p long
 ##SBATCH --nodelist=gdecnode02
-#SBATCH --mem=250G
+#SBATCH --mem=92G
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
 #SBATCH --mail-type=ALL 
