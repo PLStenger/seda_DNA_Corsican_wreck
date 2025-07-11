@@ -3,8 +3,7 @@
 #SBATCH --job-name=split_02
 ##SBATCH --time=24:00
 #SBATCH --ntasks=1
-#SBATCH -p smp
-##SBATCH --nodelist=gdecnode02
+#SBATCH -p long
 #SBATCH --mem=250G
 ##SBATCH -c 32
 #SBATCH --mail-user=pierrelouis.stenger@gmail.com
