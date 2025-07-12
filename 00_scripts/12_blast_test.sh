@@ -19,44 +19,44 @@ mkdir -p $OUTPUT
 
 cd $OUTPUT
 
-###################################################
-# 09_dedupe_Adapteremoval
-###################################################
-
-blastn \
-  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval/clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa \
-  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
-  -out results_blastn_09_dedupe_Adapteremoval_clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa.tsv \
-  -outfmt 6 \
-  -max_target_seqs 10 \
-  -num_threads 4
-
-  echo "09_dedupe_Adapteremoval_clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa fini"
-
-  blastn \
-  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval/clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa \
-  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
-  -out results_blastn_09_dedupe_Adapteremoval_clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa.tsv \
-  -outfmt 6 \
-  -max_target_seqs 10 \
-  -num_threads 4
-
-  echo "09_dedupe_Adapteremoval_clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa fini"
-
-
-###################################################
-# 09_dedupe_Adapteremoval_collapsed
-###################################################
-
-  blastn \
-  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval_collapsed/clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa \
-  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
-  -out results_blastn_09_dedupe_Adapteremoval_collapsed_clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa.tsv \
-  -outfmt 6 \
-  -max_target_seqs 10 \
-  -num_threads 4
-
-  echo "09_dedupe_Adapteremoval_collapsed_clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa fini"
+#####################################################
+### 09_dedupe_Adapteremoval
+#####################################################
+##
+##blastn \
+##  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval/clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa \
+##  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
+##  -out results_blastn_09_dedupe_Adapteremoval_clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa.tsv \
+##  -outfmt 6 \
+##  -max_target_seqs 10 \
+##  -num_threads 4
+##
+##  echo "09_dedupe_Adapteremoval_clean_1129_sed6_rep1_demux.pair2.truncated.komplex0.55-duplicates.fa fini"
+##
+##  blastn \
+##  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval/clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa \
+##  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
+##  -out results_blastn_09_dedupe_Adapteremoval_clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa.tsv \
+##  -outfmt 6 \
+##  -max_target_seqs 10 \
+##  -num_threads 4
+##
+##  echo "09_dedupe_Adapteremoval_clean_1121_sed8_rep1_demux.pair1.truncated.komplex0.55-duplicates.fa fini"
+##
+##
+#####################################################
+### 09_dedupe_Adapteremoval_collapsed
+#####################################################
+##
+##  blastn \
+##  -query /home/plstenge/seda_DNA_Corsican_wreck/09_dedupe_Adapteremoval_collapsed/clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa \
+##  -db /storage/biodatabanks/ncbi/NT/current/flat/nt \
+##  -out results_blastn_09_dedupe_Adapteremoval_collapsed_clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa.tsv \
+##  -outfmt 6 \
+##  -max_target_seqs 10 \
+##  -num_threads 4
+##
+##  echo "09_dedupe_Adapteremoval_collapsed_clean_1129_sed6_rep1_demux.collapsed.komplex0.55-duplicates.fa fini"
 
 
   blastn \
