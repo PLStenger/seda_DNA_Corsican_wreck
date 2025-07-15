@@ -19,7 +19,7 @@ mkdir -p $OUTPUT
 
 #tmp=/home/plstenge
 
-cd $OUTPUT
+cd $INPUT
 
 module load conda/4.12.0
 source ~/.bashrc
