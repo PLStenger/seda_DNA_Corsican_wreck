@@ -28,7 +28,7 @@ conda activate malt
 # find . -name "*.vmoptions"
 # Modifier le XmX
 
-export JAVA_TOOL_OPTIONS="-Xmx750G"
+export JAVA_TOOL_OPTIONS="-Xmx1000G"
 
 #Build MALT-index
 malt-build -i /storage/biodatabanks/ncbi/NT/current/fasta/All/all.fasta --sequenceType DNA --index /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt --acc2taxa /home/plstenge/seda_DNA_Corsican_wreck/99_softwares/nt/acc2taxa.map --threads 8 --verbose
