@@ -19,6 +19,10 @@ mkdir -p $OUTPUT
 
 cd $OUTPUT
 
+############################################################################################################
+## Ok avec nT soit outofmemory soit time donc on va switcher avec Diamond moins gourmand
+############################################################################################################
+
 module load conda/4.12.0
 source ~/.bashrc
 conda activate malt
