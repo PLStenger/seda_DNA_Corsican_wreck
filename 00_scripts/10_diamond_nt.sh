@@ -28,5 +28,5 @@ conda activate diamond
 # --tmpdir $tmp
 # --memory-limit 50  
 
-diamond  blastx -p 8 -d /storage/biodatabanks/ncbi/NT/current/diamond/NT.dmnd --out $OUTPUT/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55-duplicates.fa.blastx --query  clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55-duplicates.fa  --outfmt 6   --max-target-seqs 25 --sensitive  --evalue 0.01  --index-chunks 1 --block-size 2 
+diamond  blastx -p 8 -d /home/plstenge/nr_db/nr --out $OUTPUT/clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55-duplicates.fa.blastx --query  clean_1120_sed6_rep3_R1_paired.fastq.komplex0.55-duplicates.fa  --outfmt 6   --max-target-seqs 25 --sensitive  --evalue 0.01  --index-chunks 1 --block-size 2 
 
